@@ -1,0 +1,84 @@
+database:
+  path: "data/streamlit_market_data.sqlite"
+  source_table: "relationship_bars_day"
+
+columns:
+  symbol: "symbol"
+  date: "bar_date"
+  open: "open"
+  high: "high"
+  low: "low"
+  close: "close"
+
+analysis:
+  reference_symbol: "TLT"
+
+  max_lag:
+    daily: 15
+    weekly: 7
+    monthly: 7
+
+  tlt_positive_threshold:
+    daily: 0.0
+    weekly: 0.0
+    monthly: 0.0
+
+  stock_positive_threshold:
+    daily: 0.005
+    weekly: 0.005
+    monthly: 0.005
+
+  daily_response:
+    response_horizon: 3
+    onset_min_return: 0.0025
+    cumulative_threshold: 0.005
+
+  historical_event_mode:
+    daily: "impulse_cooldown"
+    weekly: "all_positive"
+    monthly: "all_positive"
+
+  daily_event_cooldown_bars: 3
+
+  min_samples:
+    daily: 30
+    weekly: 20
+    monthly: 12
+
+  min_hit_rate:
+    daily: 0.40
+    weekly: 0.40
+    monthly: 0.60
+
+  min_score:
+    daily: 45.0
+    weekly: 45.0
+    monthly: 60.0
+
+  expected_window_before: 0
+  expected_window_after: 1
+  recent_event_count: 10
+
+  expected_moves_use_best_lag_only:
+    daily: false
+    weekly: false
+    monthly: true
+
+  daily_preferred_lag_zone:
+    max_lags: 3
+    score_points: 7.5
+    hit_rate_points: 0.08
+
+  weekly_preferred_lag_zone:
+    max_lags: 2
+    score_points: 7.5
+    hit_rate_points: 0.08
+
+  ma200_entry_filter:
+    overextended_pct: 0.15
+    short_squeeze_pct: -0.15
+
+  symbols: []
+
+dashboard:
+  top_n: 50

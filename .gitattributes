@@ -1,0 +1,2 @@
+*.sqlite filter=lfs diff=lfs merge=lfs -text
+data/*.sqlite filter=lfs diff=lfs merge=lfs -text
